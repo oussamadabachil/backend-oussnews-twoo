@@ -1,6 +1,6 @@
 var express = require("express");
 var path = require("path");
-require("../backend/models/connexion");
+require("./models/connexion")
 var cors = require("cors");
 
 var cookieParser = require("cookie-parser");
