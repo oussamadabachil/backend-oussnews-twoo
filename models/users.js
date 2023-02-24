@@ -6,7 +6,8 @@ const userSchema = mongoose.Schema({
   email: String,
   password: String,
   date: { type: Date, default: Date.now },
-  bookmarks: [{ type: mongoose.Schema.Types.ObjectId, ref: "Article" }],
+  bookmarks: [{
+  }],
 });
 
 const User = mongoose.model("users", userSchema);
