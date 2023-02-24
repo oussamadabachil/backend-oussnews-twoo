@@ -25,15 +25,21 @@ router.post("/addBookmark/:userId", (req, res) => {
       res.status(500).send(err);
     } else {
       if (user.bookmarks.includes(title)) {
-        return res.status(400).send("Title already bookmarked");
+         res.json({
+
+          result:false,
+          message:'Ce titre est deja dans votre bookmark'
+        })
       }
-      // Ajouter le titre au champ "bookmarks" de l'utilisateur
       user.bookmarks.push(title);
       user.save((err) => {
         if (err) {
           res.status(500).send(err);
         } else {
-          res.send("Titre ajouté avec succès !");
+          res.json({
+            result:true,
+            message:'Ce titre a été ajouté avec succés'
+          })
         }
       });
     }
